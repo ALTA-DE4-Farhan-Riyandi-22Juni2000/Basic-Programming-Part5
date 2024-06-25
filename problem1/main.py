@@ -1,13 +1,16 @@
-def prime_number(number):
+import math
 
-  if number <= 1:
+def prime_number(number):
+  if number < 2:
     return False
-  elif number == 2 or number == 3 or number == 5 or number == 7:
-    return True
-  elif number % 2 == 0 or number % 3 == 0 or number % 5 == 0 or number % 7 == 0:
-    return False
-  else:
-    return True
+
+  sqrt_ceiling = math.ceil(math.sqrt(number))
+
+  for i in range(2, sqrt_ceiling + 1):
+    if number % i == 0 and i != number:
+      return False
+
+  return True
 
 if __name__ == '__main__':
     print(prime_number(1000000007)) # True

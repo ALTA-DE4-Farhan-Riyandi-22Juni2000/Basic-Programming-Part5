@@ -1,11 +1,12 @@
 def pair_sum(arr, target):
-    num_map = {}  # Membuat dictionary untuk menyimpan angka yang sudah dilihat
-    for i, num in enumerate(arr):
-        complement = target - num
-        if complement in num_map:
-            return [num_map[complement], i]
-        num_map[num] = i
+    seen_numbers = {}  # Membuat dictionary untuk menyimpan angka yang sudah dilihat
+    for index, value in enumerate(arr):
+        difference = target - value
+        if difference in seen_numbers:
+            return [seen_numbers[difference], index]
+        seen_numbers[value] = index
     return None
+
 
 if __name__ == '__main__':
     print(pair_sum([1, 2, 3, 4, 6], 6)) # [1, 3]
